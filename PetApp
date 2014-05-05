@@ -1,0 +1,28 @@
+package PetGUI;
+
+import jsjf.ArrayQueue;
+import jsjf.QueueADT;
+
+public class PetApp {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		QueueADT<Pet> queue = new ArrayQueue<>();
+		
+		queue.enqueue(new Pet(1, "Fido", "Bob"));
+		System.out.println(queue);
+		
+		queue.enqueue(new Pet(2, "Ziggy", "Sue"));
+		System.out.println(queue);
+		
+		queue.enqueue(new Pet(3, "Fluffy", "Mike"));
+		System.out.println(queue);
+		
+		while (! queue.isEmpty()) {
+			System.out.println(queue.dequeue());
+		}
+	}
+
+}
