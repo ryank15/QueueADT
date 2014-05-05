@@ -1,0 +1,3 @@
+QueueADT
+========
+The QueueADT Package is a basic implementation of a queue data type. In this, the queue utilizes its first in, first out function to create a Pet queue, in which the owners name, pets name, and assigned id number is shown. The GUI interface utilizes the enqueue, dequeue, and first functions, along with a show all function. The Enqueue allows a user to pass in a new owner, pet, and id number. The Dequeue allows a user to remove the first owner, pet, and id number. The First function shows the first item in the queue, and the all function shows all items currently inside of the queue.
