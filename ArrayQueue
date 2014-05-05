@@ -1,0 +1,71 @@
+package jsjf;
+
+import java.util.Arrays;
+import exceptions.EmptyCollectionException;
+
+public class ArrayQueue<T> implements QueueADT<T> {
+
+	private final static int DEFAULT_CAPACITY = 100;
+	
+	private int top;
+	private T[] queue;
+	
+	public ArrayQueue() {
+		this(DEFAULT_CAPACITY);
+	}
+	
+	public ArrayQueue(int initialCapacity) {
+		top = 0;
+		queue = (T[]) (new Object[initialCapacity]);
+	}
+	
+	@Override
+	public void enqueue(T element) {
+		if (size() == queue.length)
+			expandCapacity();
+		
+		queue[top] = element;
+		top++;
+	}
+
+	private void expandCapacity() {
+		queue = Arrays.copyOf(queue, queue.length * 2);
+	}
+	
+	@Override
+	public T dequeue() {
+		if (isEmpty())
+			throw new EmptyCollectionException("stack");
+		
+		top--;
+		T result = queue[top];
+		queue[top] = null;
+		return result;
+	}
+
+	@Override
+	public T first() {
+		if (isEmpty())
+			throw new EmptyCollectionException("Queue");
+		return queue[top-1];
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return (top == 0);
+	}
+
+	@Override
+	public int size() {
+		return top;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		for (int index=0; index < top; index++) {
+			sb.append(queue[index].toString() + "\n");
+		}
+		return sb.toString();
+	}
+}
