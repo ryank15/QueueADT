@@ -2,23 +2,25 @@ package jsjf;
 
 public class QueueTest {
 	public static void main(String[] args) {
-		QueueADT<String> queue = new LinkedQueue<>();
+		QueueADT<Integer> queue = new LinkedQueue<>();
 
-		queue.enqueue(new String("hi"));
-		queue.enqueue("bye");
-		queue.enqueue("taco");
-		queue.enqueue("blah");
-		queue.enqueue("yea");
+		queue.enqueue(new Integer(1));
+		queue.enqueue(2);
+		queue.enqueue(3);
+		queue.enqueue(4);
+		queue.enqueue(5);
 		System.out.println(queue.toString());
 
-		String x = queue.dequeue();
-		System.out.println("a = " + queue.dequeue());
+		int x = queue.dequeue();
+		System.out.println("a = " + x);
 
 		x = queue.dequeue();
-		System.out.println("b = " + queue.dequeue());
+		System.out.println("b = " + x);
+		
 		x = queue.dequeue();
-		System.out.println("c = " + queue.dequeue());
+		System.out.println("c = " + x);
+		
 		x = queue.dequeue();
-		System.out.println("d = " + queue.dequeue());
+		System.out.println("d = " + x);
 	}
 }
